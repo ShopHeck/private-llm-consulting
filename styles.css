@@ -275,12 +275,18 @@ button {
   color: var(--teal-500);
 }
 
-.section-dark .btn-ghost {
+.section-dark .btn-ghost,
+.hero .btn-ghost,
+.page-hero .btn-ghost,
+.cta-banner .btn-ghost {
   color: white;
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-.section-dark .btn-ghost:hover {
+.section-dark .btn-ghost:hover,
+.hero .btn-ghost:hover,
+.page-hero .btn-ghost:hover,
+.cta-banner .btn-ghost:hover {
   border-color: var(--teal-400);
   color: var(--teal-300);
 }
