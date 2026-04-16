@@ -1,212 +1,170 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact — Heck Holdings AI Consulting</title>
-    <meta name="description" content="Book a free 30-minute strategy call. No sales pitch — we'll map out where AI can save you time and protect your data. Or email michael@heckholdings.com." />
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&f[]=cabinet-grotesk@500,600,700,800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A1628'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Inter, sans-serif' font-size='14' font-weight='700' fill='%230D9488' letter-spacing='-1'%3EHH%3C/text%3E%3C/svg%3E" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="wrap">
-        <nav class="nav" aria-label="Primary">
-          <a href="index.html" class="brand">
-            <span class="brand-mark"><span>HH</span></span>
-            <span class="brand-name">Heck Holdings <span style="color: var(--color-text-muted); font-weight: 400;">AI Consulting</span></span>
-          </a>
-          <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="services.html" class="nav-link">Services</a>
-            <a href="industries.html" class="nav-link">Industries</a>
-            <a href="portfolio.html" class="nav-link">Case Studies</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="contact.html" class="nav-link">Contact</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Heck Holdings AI Consulting</title>
+  <meta name="description" content="Book a free 30-minute strategy call. We'll map out your highest-value AI opportunities and tell you honestly whether we're the right fit." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d9488'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='Inter,sans-serif' font-size='13' font-weight='800' fill='white'%3EHH%3C/text%3E%3C/svg%3E" />
+  <style>
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; }
+    @media(max-width:768px) { .contact-wrap { grid-template-columns: 1fr; } }
+    .contact-info h2 { color: #fff; margin-bottom: 1.25rem; }
+    .contact-info p { color: rgba(255,255,255,.5); line-height: 1.7; margin-bottom: 1.5rem; }
+    .contact-perk { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 1.1rem; }
+    .contact-perk-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(13,148,136,.1); border: 1px solid rgba(13,148,136,.2); display: flex; align-items: center; justify-content: center; color: var(--teal); flex-shrink: 0; }
+    .contact-perk-text strong { display: block; color: #fff; font-size: .88rem; font-weight: 600; }
+    .contact-perk-text span { color: rgba(255,255,255,.4); font-size: .82rem; }
+    .contact-form-card { background: #fff; border-radius: var(--radius-xl); padding: 2.5rem; box-shadow: var(--shadow-xl); }
+    .contact-form-card h3 { margin-bottom: .5rem; font-size: 1.3rem; }
+    .contact-form-card > p { font-size: .875rem; margin-bottom: 2rem; }
+    #form-success { display: none; text-align: center; padding: 3rem 1rem; }
+    #form-success h3 { color: var(--teal); margin-bottom: .75rem; }
+  </style>
+</head>
+<body>
+<header class="header" id="header">
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html" class="brand"><span class="brand-mark">HH</span><span class="brand-name">Heck Holdings <span>AI Consulting</span></span></a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="industries.html" class="nav-link">Industries</a>
+        <a href="portfolio.html" class="nav-link">Case Studies</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </div>
+      <a href="contact.html" class="btn btn-primary nav-cta btn-arrow">Book a Call</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" class="nav-link">Home</a><a href="services.html" class="nav-link">Services</a><a href="industries.html" class="nav-link">Industries</a><a href="portfolio.html" class="nav-link">Case Studies</a><a href="about.html" class="nav-link">About</a><a href="contact.html" class="nav-link">Contact</a>
+    <a href="contact.html" class="btn btn-primary" style="margin-top:.5rem;align-self:flex-start">Book a Call</a>
+  </div>
+</header>
+
+<main>
+<section class="section section-dark" style="padding-top:140px;min-height:100vh">
+  <div class="wrap">
+    <div class="contact-wrap">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Book a Call</span>
+        <h2>Let's find out what AI can do for your firm.</h2>
+        <p>30 minutes. No sales pitch. We'll map out your highest-value automation opportunities and tell you honestly whether we're the right fit — whether we work together or not.</p>
+        <div class="contact-perk">
+          <div class="contact-perk-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <a href="contact.html" class="btn btn-primary nav-cta">Book a Call</a>
-          <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-          </button>
-        </nav>
-        <div class="mobile-menu">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="services.html" class="nav-link">Services</a>
-          <a href="industries.html" class="nav-link">Industries</a>
-          <a href="portfolio.html" class="nav-link">Case Studies</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-          <a href="contact.html" class="btn btn-primary">Book a Call</a>
+          <div class="contact-perk-text">
+            <strong>30-minute strategy call</strong>
+            <span>No pitch. We listen, we assess, we're honest.</span>
+          </div>
+        </div>
+        <div class="contact-perk">
+          <div class="contact-perk-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <div class="contact-perk-text">
+            <strong>We respond within 24 hours</strong>
+            <span>Usually same business day.</span>
+          </div>
+        </div>
+        <div class="contact-perk">
+          <div class="contact-perk-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="contact-perk-text">
+            <strong>NDA on request</strong>
+            <span>We sign before any sensitive discussion.</span>
+          </div>
+        </div>
+        <div style="margin-top:2rem;padding:1.5rem;background:rgba(13,148,136,.08);border:1px solid rgba(13,148,136,.2);border-radius:var(--radius)">
+          <p style="color:var(--teal);font-weight:600;font-size:.875rem;margin:0 0 .4rem">Or email directly:</p>
+          <a href="mailto:michael@heckholdings.com" style="color:#fff;font-size:1rem;font-weight:600">michael@heckholdings.com</a>
         </div>
       </div>
-    </header>
 
-    <main>
-      <section class="page-hero">
-        <div class="hero-bg" aria-hidden="true"></div>
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="wrap">
-          <div class="reveal">
-            <span class="eyebrow">Contact</span>
-            <h1>Book your free strategy call.</h1>
-            <p class="page-hero-sub">30 minutes. No sales pitch. We'll map out where AI can save you time and protect your data — and you'll walk away with a clearer roadmap whether we work together or not.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="wrap">
-          <div class="contact-layout">
-
-            <!-- ===== SIDE ===== -->
-            <div class="contact-side reveal">
-              <span class="eyebrow">What to expect</span>
-              <h2 style="margin-top: var(--space-3);">A real conversation, not a discovery call.</h2>
-              <p>Tell us about your business, your current workflows and where you suspect AI could move the needle. We'll tell you honestly what's worth doing — and what isn't.</p>
-
-              <div class="contact-meta">
-                <div class="contact-meta-item">
-                  <div class="contact-meta-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                  </div>
-                  <div>
-                    <div class="contact-meta-label">Email directly</div>
-                    <div class="contact-meta-value"><a href="mailto:michael@heckholdings.com">michael@heckholdings.com</a></div>
-                  </div>
-                </div>
-
-                <div class="contact-meta-item">
-                  <div class="contact-meta-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  </div>
-                  <div>
-                    <div class="contact-meta-label">Response time</div>
-                    <div class="contact-meta-value">Within 24 hours, every weekday</div>
-                  </div>
-                </div>
-
-                <div class="contact-meta-item">
-                  <div class="contact-meta-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  </div>
-                  <div>
-                    <div class="contact-meta-label">Based in</div>
-                    <div class="contact-meta-value">Pinellas Park, Florida · serving the U.S.</div>
-                  </div>
-                </div>
-
-                <div class="contact-meta-item">
-                  <div class="contact-meta-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                  </div>
-                  <div>
-                    <div class="contact-meta-label">Open source</div>
-                    <div class="contact-meta-value"><a href="https://github.com/heckholdings" target="_blank" rel="noopener">github.com/heckholdings</a></div>
-                  </div>
-                </div>
+      <div class="reveal">
+        <div class="contact-form-card">
+          <h3>Tell us about your firm</h3>
+          <p>We'll review this before the call so we can make the most of your 30 minutes.</p>
+          <form class="form" id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" placeholder="Jane" required />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" placeholder="Smith" required />
               </div>
             </div>
-
-            <!-- ===== FORM ===== -->
-            <div class="reveal reveal-delay-1">
-              <form id="contact-form" class="form" novalidate>
-                <div class="form-grid">
-                  <div class="form-field">
-                    <label for="name">Name <span class="req">*</span></label>
-                    <input type="text" id="name" name="name" required placeholder="Jane Doe" autocomplete="name" />
-                  </div>
-
-                  <div class="form-field">
-                    <label for="company">Company <span class="req">*</span></label>
-                    <input type="text" id="company" name="company" required placeholder="Doe &amp; Associates" autocomplete="organization" />
-                  </div>
-
-                  <div class="form-field">
-                    <label for="email">Email <span class="req">*</span></label>
-                    <input type="email" id="email" name="email" required placeholder="jane@example.com" autocomplete="email" />
-                  </div>
-
-                  <div class="form-field">
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" />
-                  </div>
-
-                  <div class="form-field form-field-full">
-                    <label for="industry">Industry <span class="req">*</span></label>
-                    <select id="industry" name="industry" required>
-                      <option value="" disabled selected>Select your industry</option>
-                      <option value="law">Law Firm</option>
-                      <option value="medspa">Med Spa</option>
-                      <option value="healthcare">Healthcare / Behavioral Health</option>
-                      <option value="financial">Financial Services</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  <div class="form-field form-field-full">
-                    <label for="message">Tell us about your business <span class="req">*</span></label>
-                    <textarea id="message" name="message" required placeholder="A few sentences about your firm, what workflows are eating up the most time, and what you're hoping AI could solve."></textarea>
-                  </div>
-                </div>
-
-                <div class="form-actions">
-                  <button type="submit" class="btn btn-primary btn-arrow">Send &amp; book my call</button>
-                  <span class="form-note">We respond within 24 hours.</span>
-                </div>
-              </form>
-
-              <div id="form-success" class="form-success">
-                <strong>Thanks — we got it.</strong>
-                Michael will reply personally within one business day with a couple of times for your strategy call. In the meantime, if it's urgent feel free to email <a href="mailto:michael@heckholdings.com" style="color: var(--teal-500); font-weight: 600;">michael@heckholdings.com</a> directly.
+            <div class="form-group">
+              <label for="company">Firm / Company Name</label>
+              <input type="text" id="company" name="company" placeholder="Smith & Associates PLLC" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="jane@smithlaw.com" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone (optional)</label>
+                <input type="tel" id="phone" name="phone" placeholder="(727) 555-0100" />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="wrap">
-        <div class="footer-top">
-          <div class="footer-brand">
-            <div class="brand">
-              <span class="brand-mark"><span>HH</span></span>
-              <span style="color: white;">Heck Holdings</span>
+            <div class="form-group">
+              <label for="industry">Industry</label>
+              <select id="industry" name="industry" required>
+                <option value="" disabled selected>Select your industry</option>
+                <option>Law Firm</option>
+                <option>Med Spa / Aesthetics</option>
+                <option>Healthcare / Behavioral Health</option>
+                <option>Financial Services</option>
+                <option>Other</option>
+              </select>
             </div>
-            <p class="footer-tagline">Private AI. <span class="accent">Real Results.</span></p>
-            <p class="footer-desc">Boutique AI consulting for professional services firms that take data security seriously. Based in Pinellas Park, Florida.</p>
-          </div>
-          <div class="footer-col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="about.html">About</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="industries.html">Industries</a></li>
-              <li><a href="portfolio.html">Case Studies</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Connect</h4>
-            <ul>
-              <li><a href="mailto:michael@heckholdings.com">michael@heckholdings.com</a></li>
-              <li><a href="https://github.com/heckholdings" target="_blank" rel="noopener">GitHub</a></li>
-              <li><a href="contact.html">Book a strategy call</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <div>© <span data-year>2026</span> Heck Holdings. All rights reserved.</div>
-          <div class="legal">
-            <span>Pinellas Park, FL</span>
-            <span>·</span>
-            <span>Private AI. Real Results.</span>
+            <div class="form-group">
+              <label for="message">What's your biggest workflow bottleneck right now?</label>
+              <textarea id="message" name="message" placeholder="Describe the manual processes or data challenges your team faces most..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-arrow" style="align-self:flex-start;padding:1rem 2rem;font-size:1rem;border-radius:var(--radius)">Send Message</button>
+          </form>
+          <div id="form-success" hidden>
+            <div style="font-size:3rem;margin-bottom:1rem">✓</div>
+            <h3>Message received.</h3>
+            <p>We'll be in touch within 24 hours to confirm your strategy call. Check your inbox.</p>
           </div>
         </div>
       </div>
-    </footer>
-    <script src="script.js" defer></script>
-  </body>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="margin-bottom:.75rem;display:inline-flex"><span class="brand-mark">HH</span><span class="brand-name" style="color:#fff">Heck Holdings <span>AI Consulting</span></span></a>
+        <p class="footer-tagline">Private AI. <span>Real Results.</span></p>
+        <p>Boutique AI consulting for professional services firms that take data security seriously. Based in Pinellas Park, Florida.</p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html#tier-1">AI Workflow Audit</a></li><li><a href="services.html#tier-2">AI Integration</a></li><li><a href="services.html#tier-3">Private LLM Deployment</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="industries.html">Industries</a></li><li><a href="portfolio.html">Case Studies</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:michael@heckholdings.com">michael@heckholdings.com</a></li><li><a href="contact.html">Book a strategy call</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="yr">2026</span> Heck Holdings. All rights reserved.</span><span>Pinellas Park, FL · Private AI. Real Results.</span></div>
+  </div>
+</footer>
+<script src="script.js" defer></script>
+</body>
 </html>

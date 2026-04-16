@@ -1,401 +1,423 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Heck Holdings AI Consulting — Private AI for Professional Services</title>
-    <meta
-      name="description"
-      content="Private LLM and workflow automation for boutique law firms, med spas, healthcare practices and financial advisors. Your business data stays yours. Based in Pinellas Park, FL."
-    />
-    <meta property="og:title" content="Heck Holdings AI Consulting — Private AI. Real Results." />
-    <meta property="og:description" content="Private AI trained on your business. Zero exposure to public clouds. Built for companies that can't afford a breach." />
-    <meta property="og:type" content="website" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heck Holdings AI Consulting — Private AI for Professional Services</title>
+  <meta name="description" content="Private LLM and AI workflow automation for law firms, med spas, healthcare and financial services. Your data never touches a public cloud." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d9488'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='Inter,sans-serif' font-size='13' font-weight='800' fill='white'%3EHH%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
 
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&f[]=cabinet-grotesk@500,600,700,800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A1628'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Inter, sans-serif' font-size='14' font-weight='700' fill='%230D9488' letter-spacing='-1'%3EHH%3C/text%3E%3C/svg%3E" />
-  </head>
-  <body>
-    <!-- ===== HEADER ===== -->
-    <header class="header">
-      <div class="wrap">
-        <nav class="nav" aria-label="Primary">
-          <a href="index.html" class="brand" aria-label="Heck Holdings AI Consulting home">
-            <span class="brand-mark"><span>HH</span></span>
-            <span class="brand-name">Heck Holdings <span style="color: var(--color-text-muted); font-weight: 400;">AI Consulting</span></span>
-          </a>
-
-          <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="services.html" class="nav-link">Services</a>
-            <a href="industries.html" class="nav-link">Industries</a>
-            <a href="portfolio.html" class="nav-link">Case Studies</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-          </div>
-
-          <a href="contact.html" class="btn btn-primary nav-cta">Book a Call</a>
-
-          <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="18" x2="21" y2="18" />
-            </svg>
-          </button>
-        </nav>
-
-        <div class="mobile-menu" aria-label="Mobile">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="services.html" class="nav-link">Services</a>
-          <a href="industries.html" class="nav-link">Industries</a>
-          <a href="portfolio.html" class="nav-link">Case Studies</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-          <a href="contact.html" class="btn btn-primary">Book a Call</a>
-        </div>
+<!-- ═══════════════════════════════ HEADER ═══ -->
+<header class="header" id="header">
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">HH</span>
+        <span class="brand-name">Heck Holdings <span>AI Consulting</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="industries.html" class="nav-link">Industries</a>
+        <a href="portfolio.html" class="nav-link">Case Studies</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </div>
-    </header>
+      <a href="contact.html" class="btn btn-primary nav-cta btn-arrow">Book a Call</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="industries.html" class="nav-link">Industries</a>
+    <a href="portfolio.html" class="nav-link">Case Studies</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="contact.html" class="btn btn-primary" style="margin-top:.5rem;align-self:flex-start">Book a Call</a>
+  </div>
+</header>
 
-    <main>
-      <!-- ===== HERO ===== -->
-      <section class="hero">
-        <div class="hero-bg" aria-hidden="true"></div>
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="wrap">
-          <div class="hero-content">
-            <div class="hero-badge reveal">
-              <span class="hero-badge-dot">→</span>
-              Now accepting Q1 pilot clients
-            </div>
-            <h1 class="reveal reveal-delay-1">
-              Your business data <span class="accent">stays yours.</span>
-            </h1>
-            <p class="hero-sub reveal reveal-delay-2">
-              Private AI trained on your business. Zero exposure to public clouds. Built for companies that can't afford a breach.
-            </p>
-            <div class="hero-actions reveal reveal-delay-3">
-              <a href="contact.html" class="btn btn-primary btn-arrow">Book a Free Strategy Call</a>
-              <a href="services.html" class="btn btn-ghost">See how it works</a>
-            </div>
+<main>
 
-            <div class="hero-meta reveal reveal-delay-4">
-              <div class="hero-meta-item">
-                <span class="hero-meta-label">Deployment</span>
-                <span class="hero-meta-value">On-prem or private cloud</span>
-              </div>
-              <div class="hero-meta-item">
-                <span class="hero-meta-label">Data exposure</span>
-                <span class="hero-meta-value">Zero third-party</span>
-              </div>
-              <div class="hero-meta-item">
-                <span class="hero-meta-label">Average time saved</span>
-                <span class="hero-meta-value">10+ hrs / week</span>
-              </div>
-              <div class="hero-meta-item">
-                <span class="hero-meta-label">Based in</span>
-                <span class="hero-meta-value">Pinellas Park, FL</span>
-              </div>
-            </div>
+<!-- ═══════════════════════════════ HERO ═══ -->
+<section class="hero">
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Now accepting pilot clients — Q2 2026
+    </div>
+
+    <h1 class="fade-up delay-100">
+      Your client data<br>
+      <em>never leaves</em><br>
+      your building.
+    </h1>
+
+    <p class="hero-sub fade-up delay-200">
+      We build private AI systems trained on your business data — deployed on your infrastructure, not OpenAI's servers. Boutique law firms, healthcare practices, and financial services firms use us when the alternative is a data breach.
+    </p>
+
+    <div class="hero-actions fade-up delay-300">
+      <a href="contact.html" class="btn btn-primary btn-lg btn-arrow">Book a Free Strategy Call</a>
+      <a href="services.html" class="btn btn-ghost-light btn-lg">See how it works</a>
+    </div>
+
+    <div class="hero-stats fade-up delay-400">
+      <div class="hero-stat">
+        <div class="stat-val">$0</div>
+        <div class="stat-label">Data to public clouds</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-val">10<span>+</span></div>
+        <div class="stat-label">Hours saved per week</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-val">2<span>wk</span></div>
+        <div class="stat-label">Audit turnaround</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-val">90<span>d</span></div>
+        <div class="stat-label">Full deployment</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ TRUST BAR ═══ -->
+<div class="trustbar">
+  <div class="wrap">
+    <div class="trustbar-inner">
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Self-hosted models
+      </div>
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Zero third-party data exposure
+      </div>
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        HIPAA-adjacent architecture
+      </div>
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        RAG + fine-tuned on your data
+      </div>
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Pinellas Park, FL — hands-on delivery
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ THE PROBLEM ═══ -->
+<section class="section section-darker">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Problem</span>
+      <h2>Public AI is a liability your firm can't afford to ignore.</h2>
+      <p>Every time a paralegal pastes a contract into ChatGPT, or a nurse uploads intake notes into Copilot, your sensitive data enters a public model's training pipeline. Most teams don't know it's happening.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-cell reveal">
+        <span class="problem-num">01 / Exposure</span>
+        <h3>Your confidential data is training someone else's model.</h3>
+        <p style="color:rgba(255,255,255,.45)">ChatGPT, Copilot, and Gemini are not built for privileged communications. Under ABA Rule 1.6, uploading client data to these tools may constitute unauthorized disclosure — and most firms have no policy in place.</p>
+      </div>
+      <div class="problem-cell reveal">
+        <span class="problem-num">02 / Generic</span>
+        <h3>Off-the-shelf AI doesn't know your business.</h3>
+        <p style="color:rgba(255,255,255,.45)">A model trained on the internet knows nothing about your matter types, billing codes, patient intake forms, or compliance requirements. Generic answers from a generic model aren't useful — they're dangerous.</p>
+      </div>
+      <div class="problem-cell reveal">
+        <span class="problem-num">03 / Velocity</span>
+        <h3>Your competitors built private AI last year.</h3>
+        <p style="color:rgba(255,255,255,.45)">Larger firms have already deployed internal AI that handles intake, document drafting, and billing prep. The boutique market is two years behind — and the gap is widening every quarter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ SOLUTION ═══ -->
+<section class="section section-light">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:var(--teal)">The Solution</span>
+      <h2>Private AI built around your business. Not the internet.</h2>
+      <p>We deploy open-weights language models (Llama, Mistral) on your own infrastructure, fine-tune them on your data, and wrap them in the workflow automations your team actually uses — all without a single byte leaving your environment.</p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card reveal">
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>Private LLM</h3>
+        <p>An open-weights model deployed on your server or VPC. Fine-tuned on your documents, workflows, and terminology. Your team gets AI that sounds like it works for your firm — because it does.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Workflow Automation</h3>
+        <p>Intake, triage, billing narratives, client status updates, document review prep — automated end-to-end. Most clients recover 10–15 hours of staff time per week in the first month.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3>Business Intelligence</h3>
+        <p>Ask your internal data plain-English questions and get answers in seconds. Pipeline health, retention trends, capacity utilization — without exporting a spreadsheet to a public tool.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ INDUSTRIES ═══ -->
+<section class="section section-dark">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Industries</span>
+      <h2>Built for firms where data sensitivity isn't optional.</h2>
+    </div>
+    <div class="industry-grid">
+      <div class="industry-card reveal">
+        <div class="industry-icon">⚖️</div>
+        <span class="industry-tag">Law Firms</span>
+        <h3>Boutique Practices (10–50 Attorneys)</h3>
+        <p style="color:rgba(255,255,255,.45);font-size:.9rem">Matter intake, document review, billing narrative drafting, and client comms — handled privately, inside your environment. ABA Rule 1.6 compliant by design.</p>
+      </div>
+      <div class="industry-card reveal">
+        <div class="industry-icon">💉</div>
+        <span class="industry-tag">Med Spas</span>
+        <h3>Multi-Location Aesthetics Practices</h3>
+        <p style="color:rgba(255,255,255,.45);font-size:.9rem">Booking, follow-up, package upsell, and review generation — front desk to six-week recall. HIPAA-adjacent systems that keep patient data in-house.</p>
+      </div>
+      <div class="industry-card reveal">
+        <div class="industry-icon">🏥</div>
+        <span class="industry-tag">Healthcare</span>
+        <h3>Private Practices & Behavioral Health</h3>
+        <p style="color:rgba(255,255,255,.45);font-size:.9rem">Intake automation, charting prep, and secure patient outreach. Built around your EHR, not around it. PHI never leaves your environment.</p>
+      </div>
+      <div class="industry-card reveal">
+        <div class="industry-icon">📈</div>
+        <span class="industry-tag">Financial Services</span>
+        <h3>RIAs, CPAs & Wealth Managers</h3>
+        <p style="color:rgba(255,255,255,.45);font-size:.9rem">Compliance-ready meeting prep, client reporting, and document automation on private infrastructure. Built for regulated workflows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PROCESS ═══ -->
+<section class="section">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start">
+      <div class="section-head reveal" style="margin-bottom:0">
+        <span class="eyebrow">How It Works</span>
+        <h2>Audit to deployment in under 90 days.</h2>
+        <p style="margin-top:1rem">A single, predictable path. You'll know the full cost and scope before we write a line of code. The Audit fee is fully credited toward Tier 2 or 3 if you move forward within 60 days.</p>
+        <a href="contact.html" class="btn btn-primary btn-arrow" style="margin-top:2rem">Start with an Audit</a>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <div class="step-num-wrap"><div class="step-num">01</div></div>
+          <div class="step-body">
+            <h3>AI Workflow Audit</h3>
+            <p>We map every repetitive workflow, identify the highest-ROI automation candidates, and deliver a 15-page prioritized report.</p>
+            <span class="step-tag">2 weeks · $2,500 flat</span>
           </div>
         </div>
-      </section>
-
-      <!-- ===== TRUST STRIP ===== -->
-      <section class="trust-strip">
-        <div class="wrap">
-          <div class="trust-list">
-            <div class="trust-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Self-hosted models
-            </div>
-            <div class="trust-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              No data leaves your environment
-            </div>
-            <div class="trust-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-              HIPAA-adjacent architecture
-            </div>
-            <div class="trust-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              Audit-ready logs
-            </div>
-            <div class="trust-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              2-week audit turnaround
-            </div>
+        <div class="step">
+          <div class="step-num-wrap"><div class="step-num">02</div></div>
+          <div class="step-body">
+            <h3>AI Integration Build</h3>
+            <p>We build 3–6 production automations connecting your existing tools — PMS, CRM, EHR, billing — into a unified private AI layer.</p>
+            <span class="step-tag">4–8 weeks · $5K–$12K</span>
           </div>
         </div>
-      </section>
-
-      <!-- ===== THE PROBLEM ===== -->
-      <section class="section section-dark">
-        <div class="wrap">
-          <div class="section-head reveal">
-            <span class="eyebrow">The Problem</span>
-            <h2>Public AI tools are a liability your business can't afford.</h2>
-            <p>Every prompt your team types into ChatGPT becomes part of someone else's training data. For regulated industries, that's not a productivity hack — it's an incident waiting to happen.</p>
-          </div>
-
-          <div class="grid grid-3">
-            <article class="pain-card reveal">
-              <span class="pain-card-num">01 / Exposure</span>
-              <h3>Public AI tools expose your sensitive client data.</h3>
-              <p>The moment a paralegal pastes a contract into ChatGPT, your client confidentiality is theoretically breached. Most firms don't even know it's happening.</p>
-            </article>
-
-            <article class="pain-card reveal reveal-delay-1">
-              <span class="pain-card-num">02 / Generic</span>
-              <h3>Generic AI gives generic answers — not trained on YOUR business.</h3>
-              <p>Off-the-shelf models don't know your matter types, your pricing, your patient intake forms, or your compliance footprint. So you get advice that sounds smart but isn't yours.</p>
-            </article>
-
-            <article class="pain-card reveal reveal-delay-2">
-              <span class="pain-card-num">03 / Falling Behind</span>
-              <h3>Your competitors are automating — you're still doing it manually.</h3>
-              <p>Intake, follow-up, document review, client reporting. The firms that built private AI workflows in 2024 are now running on a fraction of the overhead.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== THE SOLUTION ===== -->
-      <section class="section">
-        <div class="wrap">
-          <div class="section-head reveal">
-            <span class="eyebrow">The Solution</span>
-            <h2>A private AI stack designed around your business — not the other way around.</h2>
-            <p>We build, deploy and maintain three things that work together: a private LLM, the workflow automation that feeds it, and the dashboards that turn it into decisions.</p>
-          </div>
-
-          <div class="grid grid-3">
-            <article class="card reveal">
-              <div class="card-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              </div>
-              <h3>Private LLM</h3>
-              <p>An open-weights model (Llama, Mistral, or equivalent) deployed on your infrastructure or a private cloud. Your data never leaves your environment — ever.</p>
-            </article>
-
-            <article class="card reveal reveal-delay-1">
-              <div class="card-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              </div>
-              <h3>Workflow Automation</h3>
-              <p>Intake, triage, drafting, follow-up, billing prep — the repetitive operational work that drains your week, automated end-to-end. Most clients reclaim 10+ hours per staff member.</p>
-            </article>
-
-            <article class="card reveal reveal-delay-2">
-              <div class="card-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              </div>
-              <h3>Business Intelligence</h3>
-              <p>Ask your own data plain-English questions and get answers in seconds. Pipeline, retention, capacity, profitability — without exporting a single CSV to a public tool.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== INDUSTRIES ===== -->
-      <section class="section section-dark">
-        <div class="wrap">
-          <div class="section-head reveal">
-            <span class="eyebrow">Who We Work With</span>
-            <h2>Boutique professional services firms where data sensitivity is non-negotiable.</h2>
-          </div>
-
-          <div class="grid grid-4">
-            <article class="card reveal">
-              <div class="card-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M9 21v-6h6v6"/></svg>
-              </div>
-              <h3>Law Firms</h3>
-              <p>Boutique practices with 10–50 attorneys handling matter intake, document review, billing narratives and client comms — without ever touching a public LLM.</p>
-            </article>
-
-            <article class="card reveal reveal-delay-1">
-              <div class="card-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
-              </div>
-              <h3>Med Spas</h3>
-              <p>Multi-location aesthetics practices automating booking, follow-up, package upsell and review generation — front desk through six-week recall.</p>
-            </article>
-
-            <article class="card reveal reveal-delay-2">
-              <div class="card-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 5 5 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-              </div>
-              <h3>Healthcare Practices</h3>
-              <p>Behavioral health, primary care and specialty groups using HIPAA-adjacent automation for intake, charting prep and outreach — patient data stays in-house.</p>
-            </article>
-
-            <article class="card reveal reveal-delay-3">
-              <div class="card-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              </div>
-              <h3>Financial Services</h3>
-              <p>RIAs, CPA firms and small wealth managers building compliance-ready meeting prep, client reporting and document automation on private infrastructure.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== HOW IT WORKS ===== -->
-      <section class="section">
-        <div class="wrap">
-          <div class="section-head reveal">
-            <span class="eyebrow">How It Works</span>
-            <h2>From audit to deployment in under 90 days.</h2>
-            <p>A single, predictable path. No open-ended discovery calls. No surprise scope changes. You'll know exactly what we're building, when, and what it will cost — before we write a line of code.</p>
-          </div>
-
-          <div class="steps">
-            <div class="step reveal">
-              <span class="step-num">01</span>
-              <h3>AI Workflow Audit</h3>
-              <p>Two weeks. We map every repetitive workflow in your business, identify the highest-ROI automation candidates, and deliver a prioritized roadmap with cost-benefit modeling.</p>
-              <div class="step-meta">2 weeks · $2,500 flat</div>
-            </div>
-
-            <div class="step reveal reveal-delay-1">
-              <span class="step-num">02</span>
-              <h3>Custom Integration</h3>
-              <p>Four to eight weeks. We build the workflow automations identified in the audit — connecting your existing tools (PMS, CRM, EHR, billing) into a single private AI layer.</p>
-              <div class="step-meta">4–8 weeks · $5K–$12K</div>
-            </div>
-
-            <div class="step reveal reveal-delay-2">
-              <span class="step-num">03</span>
-              <h3>Private LLM Deployment</h3>
-              <p>Six to twelve weeks. We deploy a fine-tuned open-weights model on your infrastructure, train it on your data, and hand off with full documentation and an ongoing retainer.</p>
-              <div class="step-meta">6–12 weeks · $15K–$35K + retainer</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== PRICING PREVIEW ===== -->
-      <section class="section section-dark">
-        <div class="wrap">
-          <div class="section-head reveal">
-            <span class="eyebrow">Pricing</span>
-            <h2>Three transparent tiers. No retainers until you have a working system.</h2>
-            <p>Start with a fixed-fee audit. Move forward only if the ROI math works. Audit fee is fully credited toward Tier 2 or Tier 3 if signed within 60 days.</p>
-          </div>
-
-          <div class="pricing">
-            <article class="price-card reveal">
-              <div class="price-tier">Tier 1</div>
-              <h3>AI Workflow Audit</h3>
-              <div class="price-amount">$2,500</div>
-              <div class="price-suffix">Flat fee · 2-week delivery</div>
-              <ul class="price-features">
-                <li>Operational workflow map</li>
-                <li>Prioritized automation roadmap</li>
-                <li>ROI model per opportunity</li>
-                <li>Vendor &amp; tooling recommendations</li>
-                <li>Live readout and Q&amp;A</li>
-              </ul>
-              <a href="services.html#tier-1" class="btn btn-ghost btn-arrow">See what's included</a>
-            </article>
-
-            <article class="price-card featured reveal reveal-delay-1">
-              <span class="price-badge">Most popular</span>
-              <div class="price-tier">Tier 2</div>
-              <h3>AI Integration Package</h3>
-              <div class="price-amount">$5K–$12K</div>
-              <div class="price-suffix">4–8 week build · scope-based</div>
-              <ul class="price-features">
-                <li>3–6 production workflow automations</li>
-                <li>Private API key infrastructure</li>
-                <li>Tool integrations (PMS / CRM / EHR)</li>
-                <li>Internal training &amp; documentation</li>
-                <li>30-day post-launch support</li>
-              </ul>
-              <a href="services.html#tier-2" class="btn btn-primary btn-arrow">See what's included</a>
-            </article>
-
-            <article class="price-card reveal reveal-delay-2">
-              <div class="price-tier">Tier 3</div>
-              <h3>Private LLM Deployment</h3>
-              <div class="price-amount">$15K–$35K</div>
-              <div class="price-suffix">+ $3K–$8K / mo retainer</div>
-              <ul class="price-features">
-                <li>Self-hosted open-weights model</li>
-                <li>Fine-tuning on your data</li>
-                <li>Private RAG knowledge base</li>
-                <li>Audit logging &amp; access controls</li>
-                <li>Ongoing model + workflow management</li>
-              </ul>
-              <a href="services.html#tier-3" class="btn btn-ghost btn-arrow">See what's included</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== FINAL CTA ===== -->
-      <section class="section-tight">
-        <div class="wrap">
-          <div class="cta-banner reveal">
-            <h2>Ready to see where AI can save you 10+ hours a week?</h2>
-            <p>30 minutes. No sales pitch. We'll map out where AI can save you time and protect your data — and you'll leave with a clearer roadmap whether we work together or not.</p>
-            <a href="contact.html" class="btn btn-primary btn-arrow">Book a Free Strategy Call</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-      <div class="wrap">
-        <div class="footer-top">
-          <div class="footer-brand">
-            <div class="brand">
-              <span class="brand-mark"><span>HH</span></span>
-              <span style="color: white;">Heck Holdings</span>
-            </div>
-            <p class="footer-tagline">Private AI. <span class="accent">Real Results.</span></p>
-            <p class="footer-desc">Boutique AI consulting for professional services firms that take data security seriously. Based in Pinellas Park, Florida.</p>
-          </div>
-
-          <div class="footer-col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="about.html">About</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="industries.html">Industries</a></li>
-              <li><a href="portfolio.html">Case Studies</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h4>Connect</h4>
-            <ul>
-              <li><a href="mailto:michael@heckholdings.com">michael@heckholdings.com</a></li>
-              <li><a href="https://github.com/heckholdings" target="_blank" rel="noopener">GitHub</a></li>
-              <li><a href="contact.html">Book a strategy call</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <div>© <span data-year>2026</span> Heck Holdings. All rights reserved.</div>
-          <div class="legal">
-            <span>Pinellas Park, FL</span>
-            <span>·</span>
-            <span>Private AI. Real Results.</span>
+        <div class="step">
+          <div class="step-num-wrap"><div class="step-num">03</div></div>
+          <div class="step-body">
+            <h3>Private LLM Deployment</h3>
+            <p>We deploy and fine-tune an open-weights model on your infrastructure, trained on your own data, with ongoing model management.</p>
+            <span class="step-tag">6–12 weeks · $15K–$35K + retainer</span>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js" defer></script>
-  </body>
+<!-- ═══════════════════════════════ PRICING ═══ -->
+<section class="section section-light">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="color:var(--teal)">Transparent Pricing</span>
+      <h2>Start with a fixed-fee audit. Scale when the ROI is proven.</h2>
+      <p>No open-ended consulting hours. No surprise scope changes. Three clear tiers with a single upsell path — and the Audit fee credits toward any larger engagement within 60 days.</p>
+    </div>
+    <div class="pricing-grid">
+      <article class="price-card reveal">
+        <div class="price-tier">Tier 1</div>
+        <h3>AI Workflow Audit</h3>
+        <div class="price-amt">$2,500</div>
+        <div class="price-period">Fixed fee · 2-week delivery</div>
+        <div class="price-divider"></div>
+        <ul class="price-list">
+          <li>Full operational workflow mapping</li>
+          <li>AI opportunity scoring matrix</li>
+          <li>Top 3 prioritized recommendations</li>
+          <li>Compliance risk flags</li>
+          <li>15-page written report</li>
+          <li>30-minute debrief call</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline btn-arrow" style="width:100%;justify-content:center">Get Started</a>
+      </article>
+
+      <article class="price-card featured reveal">
+        <span class="price-badge">Most popular</span>
+        <div class="price-tier">Tier 2</div>
+        <h3>AI Integration Package</h3>
+        <div class="price-amt">$5K–$12K</div>
+        <div class="price-period">Scope-based · 4–8 week build</div>
+        <div class="price-divider"></div>
+        <ul class="price-list">
+          <li>3–6 production workflow automations</li>
+          <li>Private API key infrastructure</li>
+          <li>Tool integrations (PMS / CRM / EHR)</li>
+          <li>$2,500–$5K/mo retainer option</li>
+          <li>Staff training + documentation</li>
+          <li>30-day post-launch support</li>
+        </ul>
+        <div class="credit-note">✦ Audit fee fully credited if signed within 60 days</div>
+        <a href="contact.html" class="btn btn-primary btn-arrow" style="width:100%;justify-content:center">Book a Call</a>
+      </article>
+
+      <article class="price-card reveal">
+        <div class="price-tier">Tier 3</div>
+        <h3>Private LLM Deployment</h3>
+        <div class="price-amt">$15K–$35K</div>
+        <div class="price-period">+ $3K–$8K/mo retainer</div>
+        <div class="price-divider"></div>
+        <ul class="price-list">
+          <li>Self-hosted open-weights model</li>
+          <li>Fine-tuned on your business data</li>
+          <li>Private RAG knowledge base</li>
+          <li>Audit logging & access controls</li>
+          <li>Ongoing model management</li>
+          <li>Monthly optimization reports</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline btn-arrow" style="width:100%;justify-content:center">Get Started</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ vs PUBLIC AI TABLE ═══ -->
+<section class="section section-dark">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Why Private</span>
+      <h2>Private LLM vs. public AI tools</h2>
+    </div>
+    <div class="compare-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>ChatGPT / Copilot</th>
+            <th style="color:var(--teal-lt)">Heck Holdings Private LLM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Client data exposure</td><td class="cross">Public servers</td><td class="check">Your infrastructure only</td></tr>
+          <tr><td>ABA Rule 1.6 compliance</td><td class="cross">Not addressed</td><td class="check">Designed for it</td></tr>
+          <tr><td>Trained on your business</td><td class="cross">Generic internet data</td><td class="check">Your documents & workflows</td></tr>
+          <tr><td>HIPAA-adjacent architecture</td><td class="cross">No</td><td class="check">Yes</td></tr>
+          <tr><td>Audit log of all queries</td><td class="cross">Not available</td><td class="check">Full audit trail</td></tr>
+          <tr><td>Subprocessor approval required</td><td class="cross">Not possible</td><td class="check">You approve all vendors</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CTA ═══ -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-inner reveal">
+      <span class="eyebrow" style="justify-content:center">Get Started</span>
+      <h2>Find out where AI can save your firm 10+ hours a week.</h2>
+      <p>30 minutes. No sales pitch. We'll map out your highest-value automation opportunities and tell you honestly whether we're the right fit — whether we work together or not.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-primary btn-lg btn-arrow">Book a Free Strategy Call</a>
+        <a href="services.html" class="btn btn-ghost-light btn-lg">View Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════ FOOTER ═══ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="margin-bottom:.75rem;display:inline-flex">
+          <span class="brand-mark">HH</span>
+          <span class="brand-name" style="color:#fff">Heck Holdings <span>AI Consulting</span></span>
+        </a>
+        <p class="footer-tagline">Private AI. <span>Real Results.</span></p>
+        <p>Boutique AI consulting for professional services firms that take data security seriously. Based in Pinellas Park, Florida.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#tier-1">AI Workflow Audit</a></li>
+          <li><a href="services.html#tier-2">AI Integration</a></li>
+          <li><a href="services.html#tier-3">Private LLM Deployment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="industries.html">Industries</a></li>
+          <li><a href="portfolio.html">Case Studies</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:michael@heckholdings.com">michael@heckholdings.com</a></li>
+          <li><a href="contact.html">Book a strategy call</a></li>
+          <li><a href="https://github.com/ShopHeck" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="yr">2026</span> Heck Holdings. All rights reserved.</span>
+      <span>Pinellas Park, FL · Private AI. Real Results.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
 </html>
