@@ -516,6 +516,23 @@ p  { font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.075rem); color: var(--slate-60
 .page-hero h1 { color: #fff; font-size: clamp(2rem, 1.5rem + 2.5vw, 3.75rem); margin-bottom: 1rem; }
 .page-hero p { color: rgba(255,255,255,.55); max-width: 560px; font-size: 1.05rem; line-height: 1.7; }
 
+/* ── How It Works grid ────────────────────────────────── */
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .how-it-works-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .how-it-works-grid .section-head {
+    margin-bottom: 0;
+  }
+}
+
 /* ── Animations ────────────────────────────────────────── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
