@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI ROI Calculator — Heck Holdings AI Consulting</title>
+  <meta name="description" content="Find out how much your firm is losing to manual workflows — and what private AI would return in the first year. Free, instant, no email required." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d9488'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='Inter,sans-serif' font-size='13' font-weight='800' fill='white'%3EHH%3C/text%3E%3C/svg%3E" />
+  <style>
+    /* ── Calculator layout ── */
+    .calc-page {
+      background: var(--navy-950);
+      min-height: 100vh;
+      padding: 140px 0 80px;
+    }
+    .calc-hero { text-align: center; margin-bottom: 3.5rem; }
+    .calc-hero h1 { color: #fff; font-size: clamp(2rem, 1.5rem + 2.5vw, 3.5rem); margin-bottom: 1rem; }
+    .calc-hero p { color: rgba(255,255,255,.5); font-size: 1.05rem; max-width: 560px; margin: 0 auto; }
+
+    .calc-shell {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 860px) { .calc-shell { grid-template-columns: 1fr; } }
+
+    /* ── Input panel ── */
+    .calc-inputs {
+      background: var(--navy-800);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem;
+    }
+    .calc-inputs h3 { color: #fff; margin-bottom: 2rem; font-size: 1.1rem; }
+
+    .calc-field { margin-bottom: 1.75rem; }
+    .calc-field label {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .82rem; font-weight: 600; color: rgba(255,255,255,.5);
+      text-transform: uppercase; letter-spacing: .08em;
+      margin-bottom: .65rem;
+    }
+    .calc-field label span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .9rem; font-weight: 600;
+      color: var(--teal); text-transform: none; letter-spacing: 0;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%; height: 4px;
+      border-radius: 4px;
+      background: rgba(255,255,255,.1);
+      outline: none; cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 4px rgba(13,148,136,.2);
+      cursor: pointer; transition: box-shadow .15s;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover { box-shadow: 0 0 0 7px rgba(13,148,136,.25); }
+    input[type="range"]::-moz-range-thumb {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--teal); border: none; cursor: pointer;
+    }
+
+    /* Track fill via background gradient set by JS */
+    .workflow-checks {
+      display: flex; flex-direction: column; gap: .6rem; margin-top: .75rem;
+    }
+    .workflow-check {
+      display: flex; align-items: center; gap: 10px;
+      padding: .7rem 1rem;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius-sm);
+      cursor: pointer; transition: border-color .15s, background .15s;
+      user-select: none;
+    }
+    .workflow-check:hover { background: rgba(255,255,255,.06); border-color: rgba(13,148,136,.2); }
+    .workflow-check.selected { background: rgba(13,148,136,.08); border-color: rgba(13,148,136,.3); }
+    .workflow-check input[type="checkbox"] { display: none; }
+    .check-box {
+      width: 18px; height: 18px; border-radius: 4px;
+      border: 1.5px solid rgba(255,255,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: border-color .15s, background .15s;
+    }
+    .workflow-check.selected .check-box {
+      background: var(--teal); border-color: var(--teal);
+    }
+    .check-box svg { display: none; }
+    .workflow-check.selected .check-box svg { display: block; }
+    .check-label {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .check-label strong { font-size: .875rem; color: rgba(255,255,255,.8); font-weight: 500; }
+    .check-label small { font-size: .75rem; color: rgba(255,255,255,.35); }
+    .check-hours {
+      margin-left: auto; flex-shrink: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem; font-weight: 600; color: var(--teal);
+      background: rgba(13,148,136,.1); padding: 2px 8px; border-radius: 4px;
+    }
+
+    /* ── Results panel ── */
+    .calc-results {
+      position: sticky; top: 90px;
+    }
+    .results-card {
+      background: var(--navy-800);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+    .results-header {
+      background: linear-gradient(135deg, var(--teal), #059669);
+      padding: 1.75rem 2.25rem;
+    }
+    .results-header p { color: rgba(255,255,255,.75); font-size: .82rem; margin-top: .25rem; }
+    .results-header h3 { color: #fff; font-size: 1rem; font-weight: 600; }
+
+    .results-body { padding: 1.75rem 2.25rem; }
+
+    .result-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-label { font-size: .82rem; color: rgba(255,255,255,.45); }
+    .result-label strong { display: block; font-size: .925rem; color: rgba(255,255,255,.8); font-weight: 600; margin-bottom: 2px; }
+    .result-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.3rem; font-weight: 700;
+      color: #fff; text-align: right;
+    }
+    .result-val.big { font-size: 2rem; color: var(--teal); }
+    .result-val.red { color: #f87171; }
+    .result-val.green { color: #34d399; }
+
+    /* Animated number */
+    .num-animate { transition: color .3s; }
+
+    /* Payback meter */
+    .payback-bar-wrap { margin: 1.5rem 0; }
+    .payback-bar-wrap label { font-size: .75rem; color: rgba(255,255,255,.4); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .6rem; display: block; }
+    .payback-bar-track { height: 8px; background: rgba(255,255,255,.07); border-radius: 8px; overflow: hidden; }
+    .payback-bar-fill { height: 100%; border-radius: 8px; background: linear-gradient(90deg, var(--teal), #34d399); transition: width .6s cubic-bezier(.4,0,.2,1); }
+
+    /* Tier recommendation */
+    .tier-rec {
+      margin-top: 1.5rem; padding: 1.25rem;
+      background: rgba(13,148,136,.08);
+      border: 1px solid rgba(13,148,136,.2);
+      border-radius: var(--radius);
+    }
+    .tier-rec-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--teal); margin-bottom: .4rem; }
+    .tier-rec p { font-size: .875rem; color: rgba(255,255,255,.6); margin: 0; line-height: 1.6; }
+
+    .calc-cta {
+      margin-top: 1.5rem; display: flex; flex-direction: column; gap: .75rem;
+    }
+    .calc-cta .btn { justify-content: center; text-align: center; }
+
+    /* Disclaimer */
+    .calc-disclaimer {
+      text-align: center; margin-top: 2rem;
+      font-size: .75rem; color: rgba(255,255,255,.25); line-height: 1.6;
+    }
+
+    /* Zero state */
+    .zero-state {
+      text-align: center; padding: 2rem 1rem;
+    }
+    .zero-state p { color: rgba(255,255,255,.3); font-size: .9rem; }
+  </style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html" class="brand"><span class="brand-mark">HH</span><span class="brand-name">Heck Holdings <span>AI Consulting</span></span></a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="industries.html" class="nav-link">Industries</a>
+        <a href="portfolio.html" class="nav-link">Case Studies</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <a href="contact.html" class="btn btn-primary nav-cta btn-arrow">Book a Call</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" class="nav-link">Home</a><a href="services.html" class="nav-link">Services</a>
+    <a href="industries.html" class="nav-link">Industries</a><a href="portfolio.html" class="nav-link">Case Studies</a>
+    <a href="about.html" class="nav-link">About</a><a href="contact.html" class="nav-link">Contact</a>
+    <a href="contact.html" class="btn btn-primary" style="margin-top:.5rem;align-self:flex-start">Book a Call</a>
+  </div>
+</header>
+
+<main>
+<div class="calc-page">
+  <div class="wrap">
+
+    <div class="calc-hero">
+      <span class="eyebrow" style="justify-content:center">Free Tool</span>
+      <h1>What is manual work<br><em>actually costing your firm?</em></h1>
+      <p>Adjust your firm's details below. See your real cost of inaction — and what private AI returns in year one.</p>
+    </div>
+
+    <div class="calc-shell">
+
+      <!-- ═══ INPUTS ═══ -->
+      <div class="calc-inputs">
+        <h3>Your Firm</h3>
+
+        <!-- Staff count -->
+        <div class="calc-field">
+          <label>Staff doing manual work <span id="lbl-staff">8 people</span></label>
+          <input type="range" id="r-staff" min="1" max="50" value="8" step="1" />
+        </div>
+
+        <!-- Avg hourly cost -->
+        <div class="calc-field">
+          <label>Average fully-loaded hourly cost <span id="lbl-wage">$65 / hr</span></label>
+          <input type="range" id="r-wage" min="25" max="250" value="65" step="5" />
+        </div>
+
+        <!-- Hours lost per person per week -->
+        <div class="calc-field">
+          <label>Hours lost to manual tasks per person/week <span id="lbl-hours">8 hrs</span></label>
+          <input type="range" id="r-hours" min="1" max="40" value="8" step="1" />
+        </div>
+
+        <!-- AI recovery rate -->
+        <div class="calc-field">
+          <label>Estimated AI automation rate <span id="lbl-rate">70%</span></label>
+          <input type="range" id="r-rate" min="30" max="90" value="70" step="5" />
+          <div style="display:flex;justify-content:space-between;margin-top:.4rem">
+            <span style="font-size:.7rem;color:rgba(255,255,255,.25)">Conservative (30%)</span>
+            <span style="font-size:.7rem;color:rgba(255,255,255,.25)">Aggressive (90%)</span>
+          </div>
+        </div>
+
+        <!-- Workflows -->
+        <div class="calc-field">
+          <label style="margin-bottom:.5rem">Which workflows apply to your firm?</label>
+          <div class="workflow-checks" id="workflow-checks">
+            <label class="workflow-check selected" data-hrs="3">
+              <input type="checkbox" checked />
+              <span class="check-box">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2 6 5 9 10 3"/></svg>
+              </span>
+              <span class="check-label">
+                <strong>Client / matter intake</strong>
+                <small>Forms, onboarding, file creation</small>
+              </span>
+              <span class="check-hours">~3 hrs</span>
+            </label>
+            <label class="workflow-check selected" data-hrs="4">
+              <input type="checkbox" checked />
+              <span class="check-box">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2 6 5 9 10 3"/></svg>
+              </span>
+              <span class="check-label">
+                <strong>Document drafting & review</strong>
+                <small>Contracts, motions, correspondence</small>
+              </span>
+              <span class="check-hours">~4 hrs</span>
+            </label>
+            <label class="workflow-check selected" data-hrs="3">
+              <input type="checkbox" checked />
+              <span class="check-box">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2 6 5 9 10 3"/></svg>
+              </span>
+              <span class="check-label">
+                <strong>Billing narrative prep</strong>
+                <small>Time entry descriptions, invoices</small>
+              </span>
+              <span class="check-hours">~3 hrs</span>
+            </label>
+            <label class="workflow-check" data-hrs="2">
+              <input type="checkbox" />
+              <span class="check-box">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2 6 5 9 10 3"/></svg>
+              </span>
+              <span class="check-label">
+                <strong>Client status updates</strong>
+                <small>Emails, follow-ups, case summaries</small>
+              </span>
+              <span class="check-hours">~2 hrs</span>
+            </label>
+            <label class="workflow-check" data-hrs="3">
+              <input type="checkbox" />
+              <span class="check-box">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2 6 5 9 10 3"/></svg>
+              </span>
+              <span class="check-label">
+                <strong>Case / matter research</strong>
+                <small>Precedent lookup, case law summaries</small>
+              </span>
+              <span class="check-hours">~3 hrs</span>
+            </label>
+            <label class="workflow-check" data-hrs="2">
+              <input type="checkbox" />
+              <span class="check-box">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2 6 5 9 10 3"/></svg>
+              </span>
+              <span class="check-label">
+                <strong>Internal knowledge retrieval</strong>
+                <small>Finding past filings, SOPs, templates</small>
+              </span>
+              <span class="check-hours">~2 hrs</span>
+            </label>
+            <label class="workflow-check" data-hrs="2">
+              <input type="checkbox" />
+              <span class="check-box">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2 6 5 9 10 3"/></svg>
+              </span>
+              <span class="check-label">
+                <strong>Scheduling & coordination</strong>
+                <small>Appointments, reminders, calendar sync</small>
+              </span>
+              <span class="check-hours">~2 hrs</span>
+            </label>
+          </div>
+        </div>
+
+      </div><!-- /inputs -->
+
+      <!-- ═══ RESULTS ═══ -->
+      <div class="calc-results">
+        <div class="results-card">
+          <div class="results-header">
+            <h3>Your AI ROI Estimate</h3>
+            <p>Based on your inputs — updated in real time</p>
+          </div>
+          <div class="results-body">
+
+            <div class="result-row">
+              <div class="result-label">
+                <strong>Annual cost of manual work</strong>
+                Hours × staff × wage × 52 weeks
+              </div>
+              <div class="result-val red num-animate" id="out-cost">—</div>
+            </div>
+
+            <div class="result-row">
+              <div class="result-label">
+                <strong>Hours recovered per week</strong>
+                Across all staff
+              </div>
+              <div class="result-val num-animate" id="out-hrs">—</div>
+            </div>
+
+            <div class="result-row">
+              <div class="result-label">
+                <strong>Annual value recovered</strong>
+                At your staff's hourly rate
+              </div>
+              <div class="result-val green big num-animate" id="out-value">—</div>
+            </div>
+
+            <div class="payback-bar-wrap">
+              <label>Audit payback period</label>
+              <div class="payback-bar-track">
+                <div class="payback-bar-fill" id="payback-bar" style="width:0%"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-top:.4rem">
+                <span style="font-size:.72rem;color:rgba(255,255,255,.3)">Day 1</span>
+                <span style="font-size:.72rem;color:var(--teal);font-weight:600" id="out-payback">—</span>
+                <span style="font-size:.72rem;color:rgba(255,255,255,.3)">12 months</span>
+              </div>
+            </div>
+
+            <div class="result-row">
+              <div class="result-label">
+                <strong>3-year cumulative gain</strong>
+                Value recovered minus all investment
+              </div>
+              <div class="result-val green num-animate" id="out-3yr">—</div>
+            </div>
+
+            <div class="tier-rec" id="tier-rec">
+              <div class="tier-rec-label" id="tier-rec-label">Recommended Starting Point</div>
+              <p id="tier-rec-text">Adjust your inputs to see a recommendation.</p>
+            </div>
+
+            <div class="calc-cta">
+              <a href="contact.html" class="btn btn-primary btn-lg btn-arrow">Book a Free Strategy Call</a>
+              <a href="services.html#tier-1" class="btn btn-outline">Start with the $2,500 Audit</a>
+            </div>
+
+          </div>
+        </div>
+
+        <p class="calc-disclaimer">
+          Estimates are illustrative projections based on your inputs. Actual results vary by firm, implementation scope, and workflow complexity. All figures assume a 50-week work year.
+        </p>
+      </div><!-- /results -->
+
+    </div><!-- /shell -->
+  </div>
+</div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="margin-bottom:.75rem;display:inline-flex"><span class="brand-mark">HH</span><span class="brand-name" style="color:#fff">Heck Holdings <span>AI Consulting</span></span></a>
+        <p class="footer-tagline">Private AI. <span>Real Results.</span></p>
+        <p>Boutique AI consulting for professional services firms. Based in Pinellas Park, Florida.</p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html#tier-1">AI Workflow Audit</a></li><li><a href="services.html#tier-2">AI Integration</a></li><li><a href="services.html#tier-3">Private LLM Deployment</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="industries.html">Industries</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:michael@heckholdings.com">michael@heckholdings.com</a></li><li><a href="contact.html">Book a strategy call</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="yr">2026</span> Heck Holdings. All rights reserved.</span><span>Pinellas Park, FL · Private AI. Real Results.</span></div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script>
+(function () {
+
+  const fmt = (n) => n >= 1000
+    ? '$' + (n >= 1000000 ? (n/1000000).toFixed(1) + 'M' : Math.round(n/1000) + 'K')
+    : '$' + Math.round(n);
+
+  const fmtHrs = (n) => Math.round(n) + ' hrs/wk';
+
+  function getInputs() {
+    return {
+      staff:  +document.getElementById('r-staff').value,
+      wage:   +document.getElementById('r-wage').value,
+      hours:  +document.getElementById('r-hours').value,
+      rate:   +document.getElementById('r-rate').value / 100,
+    };
+  }
+
+  function getWorkflowBonus() {
+    let total = 0;
+    document.querySelectorAll('.workflow-check.selected').forEach(el => {
+      total += parseFloat(el.dataset.hrs) || 0;
+    });
+    return total;
+  }
+
+  // Tier decision thresholds
+  function getTier(annualValue) {
+    if (annualValue < 30000) return {
+      label: 'Start with the AI Workflow Audit',
+      text: 'Your estimated ROI covers the $2,500 Audit cost within weeks. The Audit maps your highest-value workflows and credits toward any larger build within 60 days.',
+      tier: 1
+    };
+    if (annualValue < 100000) return {
+      label: 'Strong candidate for Tier 2 — AI Integration',
+      text: 'Your potential return exceeds the investment threshold for a full AI integration build ($5K–$12K). A Tier 2 engagement would likely pay back within 2–4 months.',
+      tier: 2
+    };
+    return {
+      label: 'High ROI candidate for Private LLM Deployment',
+      text: 'Your firm\'s scale and workflow volume make a dedicated private LLM the highest-return investment. Tier 3 clients at this level typically see full payback within 6–9 months.',
+      tier: 3
+    };
+  }
+
+  function updateSliderFill(el) {
+    const min = +el.min, max = +el.max, val = +el.value;
+    const pct = ((val - min) / (max - min)) * 100;
+    el.style.background = `linear-gradient(90deg, #0d9488 ${pct}%, rgba(255,255,255,.1) ${pct}%)`;
+  }
+
+  function calculate() {
+    const { staff, wage, hours, rate } = getInputs();
+
+    // Base calculation
+    const annualCost   = staff * wage * hours * 50;          // 50-week year
+    const hrsRecovered = staff * hours * rate;               // hrs/wk across firm
+    const annualValue  = staff * wage * hours * rate * 50;
+
+    // Payback on $2,500 audit
+    const weeklyValue = annualValue / 50;
+    const paybackWeeks = weeklyValue > 0 ? Math.ceil(2500 / weeklyValue) : 999;
+
+    // 3-year: value × 3 minus Tier 1 cost (conservative — just audit)
+    const invest = annualValue > 100000 ? 35000 + (5000 * 12) :
+                   annualValue > 30000  ? 12000 + (3500 * 12) : 2500;
+    const threeYr = (annualValue * 3) - invest;
+
+    // Payback bar (0–52 weeks = 0–100%)
+    const barPct = Math.min(100, Math.max(0, (1 - paybackWeeks / 52) * 100 + 10));
+
+    // Payback label
+    let paybackLabel;
+    if (paybackWeeks <= 1)       paybackLabel = '< 1 week';
+    else if (paybackWeeks < 52)  paybackLabel = paybackWeeks + ' weeks';
+    else                         paybackLabel = '> 1 year';
+
+    // Update DOM
+    document.getElementById('out-cost').textContent    = fmt(annualCost);
+    document.getElementById('out-hrs').textContent     = fmtHrs(hrsRecovered);
+    document.getElementById('out-value').textContent   = fmt(annualValue);
+    document.getElementById('out-3yr').textContent     = threeYr > 0 ? fmt(threeYr) : '$0';
+    document.getElementById('out-payback').textContent = paybackLabel;
+    document.getElementById('payback-bar').style.width = barPct + '%';
+
+    const rec = getTier(annualValue);
+    document.getElementById('tier-rec-label').textContent = rec.label;
+    document.getElementById('tier-rec-text').textContent  = rec.text;
+  }
+
+  function bindLabels() {
+    const map = {
+      'r-staff': (v) => { document.getElementById('lbl-staff').textContent = v + ' people'; },
+      'r-wage':  (v) => { document.getElementById('lbl-wage').textContent  = '$' + v + ' / hr'; },
+      'r-hours': (v) => { document.getElementById('lbl-hours').textContent = v + ' hrs'; },
+      'r-rate':  (v) => { document.getElementById('lbl-rate').textContent  = v + '%'; },
+    };
+    Object.keys(map).forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      updateSliderFill(el);
+      el.addEventListener('input', () => {
+        map[id](el.value);
+        updateSliderFill(el);
+        calculate();
+      });
+    });
+  }
+
+  function bindWorkflows() {
+    document.querySelectorAll('.workflow-check').forEach(label => {
+      label.addEventListener('click', () => {
+        label.classList.toggle('selected');
+        const cb = label.querySelector('input[type="checkbox"]');
+        if (cb) cb.checked = label.classList.contains('selected');
+        calculate();
+      });
+    });
+  }
+
+  bindLabels();
+  bindWorkflows();
+  calculate();
+
+  // Year
+  const yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+})();
+</script>
+
+</body>
+</html>
