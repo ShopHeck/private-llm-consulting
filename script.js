@@ -1,82 +1,92 @@
 // Heck Holdings AI Consulting
 (function () {
 
-  // Reveal class enables CSS transitions (content always visible without JS)
   document.documentElement.classList.add('js-loaded');
 
-  // Header — dark when over hero, light when scrolled into white content
   const header = document.getElementById('header');
+  const toggle = document.querySelector('.nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  // ── Header dark/light on scroll ──────────────────────────
   if (header) {
-    const heroHeight = () => {
-      const hero = document.querySelector('.hero, .page-hero');
-      return hero ? hero.offsetHeight - 20 : 60;
-    };
+    const hasDarkHero = !!document.querySelector('.hero, .page-hero');
+
     const updateHeader = () => {
-      const scrolled = window.scrollY > heroHeight();
-      if (header.classList.contains('on-dark')) {
-        // Started dark — switch to light when past hero
-        if (scrolled) {
-          header.classList.remove('on-dark');
-        }
+      if (!hasDarkHero) return; // inner pages always light
+      const hero = document.querySelector('.hero, .page-hero');
+      const threshold = hero ? hero.offsetHeight - 10 : 60;
+      if (window.scrollY > threshold) {
+        header.classList.remove('on-dark');
       } else {
-        if (!scrolled) header.classList.add('on-dark');
+        header.classList.add('on-dark');
       }
     };
-    // Inner pages without dark hero — always light
-    if (!document.querySelector('.hero, .page-hero')) {
-      header.classList.remove('on-dark');
-    }
+
+    if (!hasDarkHero) header.classList.remove('on-dark');
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
   }
 
-  // Mobile menu
-  const toggle = document.querySelector('.nav-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
+  // ── Mobile menu ───────────────────────────────────────────
   if (toggle && mobileMenu) {
-    toggle.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
-      // Mobile menu is always light bg
-      if (open) header && header.classList.remove('on-dark');
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation(); // prevent bubbling to document closer
+      const isOpen = mobileMenu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      // swap toggle icon
+      toggle.innerHTML = isOpen
+        ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+        : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
     });
-    document.addEventListener('click', (e) => {
-      if (!header.contains(e.target)) {
+
+    // Close on outside click
+    document.addEventListener('click', function (e) {
+      if (mobileMenu.classList.contains('open') && !header.contains(e.target)) {
         mobileMenu.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
+        toggle.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
       }
+    });
+
+    // Close when a menu link is tapped
+    mobileMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+      });
     });
   }
 
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
+  // ── Scroll reveal ─────────────────────────────────────────
+  var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && reveals.length) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
       });
     }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
-    reveals.forEach((el) => io.observe(el));
+    reveals.forEach(function (el) { io.observe(el); });
   } else {
-    reveals.forEach((el) => el.classList.add('visible'));
+    reveals.forEach(function (el) { el.classList.add('visible'); });
   }
 
-  // Active nav link
-  const page = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach((a) => {
-    const href = (a.getAttribute('href') || '').split('#')[0];
+  // ── Active nav ────────────────────────────────────────────
+  var page = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-link').forEach(function (a) {
+    var href = (a.getAttribute('href') || '').split('#')[0];
     a.classList.toggle('active', href === page || (!page && href === 'index.html'));
   });
 
-  // Year
-  document.querySelectorAll('#yr').forEach(el => el.textContent = new Date().getFullYear());
+  // ── Year ──────────────────────────────────────────────────
+  document.querySelectorAll('#yr').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
-  // Contact form
-  const form = document.getElementById('contact-form');
+  // ── Contact form ──────────────────────────────────────────
+  var form = document.getElementById('contact-form');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      const success = document.getElementById('form-success-msg') || document.getElementById('form-success');
+      var success = document.getElementById('form-success-msg') || document.getElementById('form-success');
       form.style.display = 'none';
       if (success) { success.style.display = 'block'; success.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
     });
