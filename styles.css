@@ -571,3 +571,292 @@ p {
   .cta-actions { flex-direction: column; align-items: flex-start; }
   .hero-stats { flex-direction: column; gap: 1.5rem; }
 }
+
+/* =========================================================
+   INNER PAGE COMPONENTS
+   (about, industries, portfolio, services inner pages)
+   ========================================================= */
+
+/* ── Eyebrow label (same as .label but as block) ────────── */
+.eyebrow {
+  display: block;
+  font-size: 0.6875rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 0.75rem;
+}
+.section-dark .eyebrow, .section-ink .eyebrow { color: rgba(255,255,255,.35); }
+
+/* ── Brand name span ─────────────────────────────────────── */
+.brand-name { display: flex; flex-direction: column; }
+.brand-name span { color: var(--gray-400); font-weight: 400; font-size: 0.75rem; }
+
+/* ── Section variants ────────────────────────────────────── */
+.section-light { background: var(--off-white); }
+.section-tight { padding: clamp(3rem, 5vw, 5rem) 0; }
+.wrap-default { max-width: 900px; }
+
+/* ── Stagger reveal delays ───────────────────────────────── */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+
+/* ── Page hero extras ────────────────────────────────────── */
+.hero-bg, .hero-grid { display: none; } /* decorative, not used */
+.page-hero-sub {
+  font-size: clamp(1rem, 0.95rem + 0.35vw, 1.15rem);
+  color: rgba(255,255,255,.48); max-width: 620px;
+  margin-top: 1.25rem; line-height: 1.75;
+}
+
+/* ── CTA banner (light sections) ────────────────────────── */
+.cta-banner {
+  max-width: 640px;
+  padding: clamp(3rem, 5vw, 5rem) 0;
+}
+.cta-banner h2 { margin-bottom: 1rem; }
+.cta-banner p { color: var(--gray-500); margin-bottom: 2rem; font-size: 1.025rem; line-height: 1.75; }
+
+/* Services page CTA section */
+.cta-section { background: var(--off-white); padding: clamp(4rem, 7vw, 7rem) 0; }
+.cta-inner { max-width: 640px; text-align: center; margin: 0 auto; }
+.cta-inner h2 { margin-bottom: 1rem; }
+.cta-inner p { color: var(--gray-500); margin-bottom: 2rem; font-size: 1.025rem; line-height: 1.75; }
+.cta-actions { display: flex; flex-wrap: wrap; gap: 0.875rem; justify-content: center; }
+
+/* ── Bio (about page) ────────────────────────────────────── */
+.bio {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.bio-portrait {
+  position: sticky; top: 90px;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1.25rem;
+}
+.bio-monogram {
+  width: 120px; height: 120px;
+  border-radius: 12px;
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.5rem; font-weight: 800; color: #fff;
+  letter-spacing: -0.04em;
+}
+.bio-tag {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  font-size: 0.75rem; font-weight: 600; color: var(--gray-400);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.bio-content { display: flex; flex-direction: column; gap: 1.25rem; }
+.role {
+  font-size: 0.875rem; font-weight: 600;
+  color: var(--teal); letter-spacing: 0.02em;
+  margin-bottom: 0.25rem;
+}
+.bio-stats {
+  display: flex; flex-wrap: wrap; gap: 2.5rem;
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--gray-100);
+  margin-top: 0.5rem;
+}
+.bio-stat-num {
+  display: block;
+  font-size: 2rem; font-weight: 800;
+  letter-spacing: -0.03em; color: var(--ink); line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.bio-stat-label {
+  font-size: 0.75rem; font-weight: 500;
+  color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+/* ── Mission blockquote ──────────────────────────────────── */
+.mission {
+  max-width: 720px; margin: 0 auto;
+  text-align: center; padding: clamp(3rem, 5vw, 5rem) 0;
+}
+.mission blockquote {
+  font-size: clamp(1.2rem, 1rem + 1vw, 1.6rem);
+  font-weight: 700; line-height: 1.5;
+  letter-spacing: -0.02em; color: var(--ink);
+  border: none; padding: 0; margin: 0;
+}
+
+/* ── Values grid (about page) ────────────────────────────── */
+.values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: clamp(1.5rem, 3vw, 2rem);
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+.value {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+.value-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius);
+  background: rgba(13,125,115,.15);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--teal-lt); margin-bottom: 1.25rem;
+}
+.value h3 { color: #fff; margin-bottom: 0.65rem; }
+.value p { color: rgba(255,255,255,.45); font-size: 0.9rem; line-height: 1.7; }
+
+/* ── Portfolio: Case cards ───────────────────────────────── */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+}
+.case-card {
+  position: relative; overflow: hidden;
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  background: var(--white);
+  display: flex; flex-direction: column; gap: 0.75rem;
+  transition: box-shadow .2s, border-color .2s;
+}
+.case-card:hover { box-shadow: var(--shadow-lg); border-color: var(--gray-200); }
+.case-pattern { display: none; }
+.case-vertical {
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--teal);
+}
+.case-card h3 { font-size: 1rem; color: var(--ink); line-height: 1.45; }
+.case-card p { color: var(--gray-500); font-size: 0.875rem; line-height: 1.7; margin: 0; }
+.case-status {
+  display: inline-flex; align-items: center;
+  margin-top: auto; padding-top: 1rem;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gray-300);
+}
+
+/* Portfolio: card icon */
+.card-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius);
+  background: var(--teal-dim);
+  border: 1px solid var(--teal-line);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--teal); margin-bottom: 1rem;
+}
+
+/* Generic grid (used in portfolio) */
+.grid { display: grid; gap: clamp(1.5rem, 3vw, 2rem); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+
+/* ── Industries page ─────────────────────────────────────── */
+.industry-block {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+  padding: clamp(3rem, 5vw, 4rem) 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+.industry-block:last-child { border-bottom: none; }
+
+.industry-meta { position: sticky; top: 90px; }
+.industry-icon-large {
+  width: 52px; height: 52px;
+  border-radius: var(--radius);
+  background: var(--teal-dim);
+  border: 1px solid var(--teal-line);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--teal); margin-bottom: 1.25rem;
+}
+.industry-meta h2 { margin-bottom: 0.5rem; }
+.tagline {
+  font-size: 0.875rem; font-style: normal;
+  color: var(--teal); font-weight: 600;
+  margin-bottom: 0.75rem; display: block;
+}
+
+.industry-detail {
+  display: flex; flex-direction: column;
+  gap: 2rem;
+}
+.industry-detail h3 {
+  font-size: 0.875rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--gray-400); margin-bottom: 1rem;
+}
+.industry-detail ul {
+  display: flex; flex-direction: column; gap: 0.65rem;
+  list-style: none;
+}
+.industry-detail ul li {
+  font-size: 0.9375rem; color: var(--gray-500);
+  line-height: 1.65; padding-left: 1.25rem;
+  position: relative;
+}
+.industry-detail ul li::before {
+  content: '—';
+  position: absolute; left: 0;
+  color: var(--teal); font-weight: 700;
+}
+
+.roi-callout {
+  background: var(--teal-dim);
+  border: 1px solid var(--teal-line);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.roi-icon {
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(13,125,115,.15);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--teal);
+}
+.roi-text {
+  font-size: 0.9rem; color: var(--gray-600);
+  line-height: 1.7; margin: 0;
+}
+.roi-text strong { color: var(--ink); font-weight: 700; }
+
+/* ── Footer variants (about/industries/portfolio) ────────── */
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.8fr repeat(2, 1fr);
+  gap: 2rem; padding-bottom: 3rem;
+}
+.footer-brand .brand { display: inline-flex; margin-bottom: 1rem; }
+.footer-desc { font-size: 0.825rem; color: rgba(255,255,255,.3); line-height: 1.7; max-width: 260px; margin-top: 0.5rem; }
+.legal { display: flex; gap: 0.5rem; align-items: center; color: rgba(255,255,255,.2); font-size: 0.775rem; }
+
+/* ── Mobile responsive overrides ────────────────────────── */
+@media (max-width: 768px) {
+  /* Services: tier grids stack */
+  .wrap > [style*="grid-template-columns:1fr 1.4fr"],
+  .wrap > [style*="grid-template-columns:1.4fr 1fr"],
+  .wrap > [style*="grid-template-columns:1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  /* Bio stacks */
+  .bio { grid-template-columns: 1fr; }
+  .bio-portrait { position: static; flex-direction: row; justify-content: flex-start; }
+
+  /* Industries stacks */
+  .industry-block { grid-template-columns: 1fr; gap: 2rem; }
+  .industry-meta { position: static; }
+
+  /* Footer top stacks */
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .footer-top { grid-template-columns: 1fr; }
+  .bio-stats { gap: 1.5rem; }
+}
