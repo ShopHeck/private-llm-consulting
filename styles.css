@@ -23,8 +23,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   --gray-100:   #ebebea;
   --gray-200:   #d6d5d2;
   --gray-300:   #b8b7b4;
-  --gray-400:   #8c8b88;
-  --gray-500:   #5e5d5a;
+  --gray-400:   #757472;
+  --gray-500:   #4a4946;
   --gray-600:   #3d3c3a;
   --gray-900:   #1a1917;
 
@@ -100,6 +100,11 @@ p {
   font-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
   color: var(--gray-500);
   line-height: 1.75;
+}
+
+/* Ensure body copy on white always passes 4.5:1 */
+.section p, .card p, .step-body p {
+  color: #4a4946;
 }
 .lead {
   font-size: clamp(1.05rem, 1rem + 0.4vw, 1.2rem);
@@ -333,6 +338,10 @@ p {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 4rem; align-items: start;
 }
+.how-it-works-sticky {
+  position: sticky;
+  top: 90px;
+}
 
 /* ── Step list ───────────────────────────────────────────── */
 .step-list { display: flex; flex-direction: column; gap: 0; }
@@ -529,7 +538,14 @@ p {
   .nav-toggle { display: flex; }
   .hero { padding: 120px 0 72px; }
   .hero-stats { gap: 2rem; }
-  .how-it-works-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .how-it-works-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .how-it-works-sticky {
+    position: static !important;
+    top: auto !important;
+  }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .trust-item { padding-left: 1rem; }
