@@ -311,6 +311,10 @@ p {
 /* Dark overrides */
 .section-dark h2, .section-dark h3, .section-ink h2, .section-ink h3 { color: #fff; }
 .section-dark p, .section-ink p { color: rgba(255,255,255,.45); }
+/* Cards inside dark sections keep their own light styling */
+.section-dark .card h3, .section-ink .card h3 { color: var(--ink); }
+.section-dark .card p, .section-ink .card p { color: var(--gray-500); }
+.section-dark .card, .section-ink .card { background: var(--white); }
 .section-dark .label { color: rgba(255,255,255,.35); }
 
 /* ── Section head ────────────────────────────────────────── */
